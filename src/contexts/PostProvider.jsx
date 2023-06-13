@@ -23,6 +23,7 @@ export function PostProvider({children})
             console.error(error.response.data)
         }
     }
+    
     useEffect(()=>{
         getPostData()
     },[dispatchPost])

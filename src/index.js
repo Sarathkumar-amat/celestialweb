@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { makeServer } from "./server";
 import { PostProvider } from './contexts/PostProvider';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthProvider';
 
 makeServer();
 
@@ -13,9 +14,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-    <PostProvider>
-    <App />
-    </PostProvider>
+     
+        <PostProvider>
+        <AuthProvider>
+          <App />
+          </AuthProvider>
+        </PostProvider>
+       
     </Router>
   </React.StrictMode>
 );
