@@ -8,7 +8,8 @@ export function PostProvider({children})
 {
     
     const [postState,dispatchPost] = useReducer(postReducer,{
-        posts:[]
+        posts:[],
+        sortType:""
     })
     const getPostData = async()=>{
         try{
