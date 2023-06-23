@@ -15,9 +15,10 @@ export function PostCard({singlePost})
     const {userState,dispatchUser} = useContext(UserContext);
     const {user} = useContext(AuthContext);
     const token = localStorage.getItem("token");
-    const userValues = JSON.parse(user);
+    const userValues = user;
     const date = new Date(createdAt);
-    console.log(date);
+    // console.log(date);
+    // console.log(user);
     // console.log(userValues.userData?.username);
     return (<div className="postCard">
        <p>{username}</p> 
@@ -26,10 +27,10 @@ export function PostCard({singlePost})
         <p>{updatedAt}</p>
       
         
-        {checkIfLikedByUser(postState?.posts,singlePost?._id,userValues.userData?.username) &&
+        {checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
        
         <i onClick={()=>doDislike(singlePost?._id,token,dispatchPost)} style={{color:"red"}} class="bi-heart-fill"></i>}
-       {!checkIfLikedByUser(postState?.posts,singlePost?._id,userValues.userData?.username) &&
+       {!checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
         <i onClick={()=>addLike(singlePost?._id,token,dispatchPost)} class="bi-heart"></i>}
          <i class="bi-chat-left"></i>
         <i class="bi-share"></i>

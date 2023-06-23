@@ -15,14 +15,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
+    <AuthProvider>
         <UserProvider>
         <PostProvider>
-        <AuthProvider>
+        
           <App />
-          </AuthProvider>
+         
         </PostProvider>
         </UserProvider>
-       
+        </AuthProvider>
     </Router>
   </React.StrictMode>
 );
