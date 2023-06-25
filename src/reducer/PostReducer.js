@@ -8,6 +8,10 @@ export function postReducer(state,action)
             return {...state,posts:action.payload};
         case "SET_SORT":
             return {...state,sortType:action.payload}
+        case "ADD_POST":
+            return {...state,posts:action.payload};
+        case "DELETE_POST":
+            return {...state,posts:action.payload};
        
     }
 }

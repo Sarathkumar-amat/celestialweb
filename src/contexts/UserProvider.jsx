@@ -9,8 +9,8 @@ export const UserContext = createContext();
 export function UserProvider({children})
 {
     const {user,setUser,val} = useContext(AuthContext);
-    console.log(user); 
-    console.log(val);
+    // console.log(user); 
+    // console.log(val);
    
     const [userState,dispatchUser] = useReducer(userReducer,{
         allUserDetails:{},

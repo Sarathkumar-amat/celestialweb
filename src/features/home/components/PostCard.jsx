@@ -1,4 +1,5 @@
 import { addBookMark, removeBookMark } from "../../../Services/bookMarkServices"
+import { doDeletePost } from "../../../Services/getPostServices"
 import { addLike, doDislike } from "../../../Services/likeServices"
 import { checkBookMarked } from "../../../backend/utils/checkBookMark"
 import { checkIfLikedByUser } from "../../../backend/utils/checkLike"
@@ -36,6 +37,6 @@ export function PostCard({singlePost})
         <i class="bi-share"></i>
         {!checkBookMarked(userState.bookMarks,singlePost?._id) ? <i onClick={()=>addBookMark(singlePost?._id,token,dispatchUser)}class="bi-bookmark"></i>
        : <i onClick={()=>removeBookMark(singlePost?._id,token,dispatchUser)} class="bi-bookmark-fill"></i>}
-
+        <button onClick={()=>doDeletePost(singlePost?._id,token,dispatchPost)}>delete</button>
     </div>)
 }

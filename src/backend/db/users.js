@@ -15,8 +15,10 @@ export const users = [
     followers: [],
     following: [],
     password: "adarshBalika123",
+    bio: "Just hang on",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    profileImg:"http://surl.li/ijvfa"
     
   },
   {
@@ -31,6 +33,7 @@ export const users = [
     following: [],
     createdAt: "2022-02-15T15:30:45+05:30",
     updatedAt: "2023-05-20T09:12:30+05:30",
+    profileImg:"http://surl.li/ijvgc"
    
   },
   {
@@ -44,7 +47,8 @@ export const users = [
     bio: "Dream big, achieve bigger!",
     bookmarks: [],
     createdAt: "2022-03-10T08:45:12+05:30",
-    updatedAt: "2023-06-05T11:20:15+05:30"
+    updatedAt: "2023-06-05T11:20:15+05:30",
+    profileImg:"http://surl.li/ijvgh"
   },
   {
     _id: "u8nZkQCv-c",
@@ -57,7 +61,8 @@ export const users = [
     bio: "Passion fuels progress!",
     bookmarks: [],
     createdAt: "2022-04-22T16:20:30+05:30",
-    updatedAt: "2023-06-09T14:05:50+05:30"
+    updatedAt: "2023-06-09T14:05:50+05:30",
+    profileImg:"http://surl.li/ijvgw"
   },
   {
     _id: "p3lSdYFu-d",
@@ -70,7 +75,8 @@ export const users = [
     followers: [],
     following: [],
     createdAt: "2022-05-05T12:10:25+05:30",
-    updatedAt: "2023-06-10T08:35:40+05:30"
+    updatedAt: "2023-06-10T08:35:40+05:30",
+    profileImg:"http://surl.li/ijvgw"
   },
   {
     _id: "m9vXrDJy-f",
@@ -83,7 +89,8 @@ export const users = [
     followers: [],
     following: [],
     createdAt: "2022-07-01T14:30:15+05:30",
-    updatedAt: "2023-06-10T12:15:10+05:30"
+    updatedAt: "2023-06-10T12:15:10+05:30",
+    profileImg:"http://surl.li/ijvhk"
   },
   {
     _id: "w2gKfUEo-g",
@@ -96,6 +103,7 @@ export const users = [
     following: [],
     bookmarks: [],
     createdAt: "2022-08-14T09:25:50+05:30",
-    updatedAt: "2023-06-10T14:45:05+05:30"
+    updatedAt: "2023-06-10T14:45:05+05:30",
+    profileImg:"http://surl.li/ijvgw"
   }
 ];

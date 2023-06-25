@@ -1,3 +1,4 @@
 export const checkBookMarked = (bookMarkArray,postId)=>{
-    return bookMarkArray.find(id=>id===postId)?true:false;
+    const result = bookMarkArray.find(({_id})=>_id===postId)?true:false;
+    return result;
 }

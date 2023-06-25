@@ -10,6 +10,7 @@ import { PostCard } from "../home/components/PostCard";
 export function Profile()
 {
     const {user} = useContext(AuthContext);
+    const [editModel,setEditModel] = useState(false);
     const [userPosts,setUserPosts] = useState([]);
     console.log(user);
    const getPostFromAPI = async (userName)=>{
@@ -20,6 +21,9 @@ export function Profile()
         getPostFromAPI(user?.username)},[user]);
         console.log(userPosts);
     return (<div className="profileParent">
+         <div className="editBox">
+            {editModel && <EditProfile closeModal={setEditModel}/>}
+        </div>
         <div className="child1">
         This is profile page
         </div>
@@ -27,10 +31,13 @@ export function Profile()
         {/* <div className="overlay">
             <EditProfile />
         </div> */}
+       
         <div>
             <h2>{user?.firstName} {user?.lastName}</h2>
             <p>@{user?.username}</p>
-            <button>Edit profile</button>
+            <button onClick={()=>setEditModel(!editModel)}>Edit profile</button>
+            <p>{user?.bio}</p>
+            <p>following</p>
             <p>{user?.followers.length} followers</p>
             <p>{user?.following.length} following</p>
             <h2>Your Posts</h2>

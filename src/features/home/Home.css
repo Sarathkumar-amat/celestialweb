@@ -1,0 +1,37 @@
+.HomePage{
+    display: flex;
+}
+.homeComponent{
+    margin:20px;
+}
+.postText{
+   margin:20px;
+    border: none;
+}
+.postComp{
+    border: 1px solid black;
+    width:700px;
+    display: flex;
+    position: relative;
+}
+.profileImgContainer{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.profileImgContainer img{
+    width:100%;
+    top:0;
+}
+.submitContainer{
+    align-self: flex-end;
+}
+.postButton{
+    bottom: 0;
+    top:0;
+}
+.individualPost{
+    width:800px;
+    margin:40px;
+}

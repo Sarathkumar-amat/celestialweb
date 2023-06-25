@@ -52,3 +52,22 @@ export const doUnfollow = async(followUserId,token,setUser)=>{
         console.log(error)
     }
 }
+export const doEdit = async(userData,token,setUser)=>
+{
+    try{
+        const response = await axios.post("/api/users/edit",{userData},{
+            headers:{
+                authorization:token
+            }
+        })
+        if(response.status===201)
+        {
+            localStorage.setItem("user",JSON.stringify(response.data.user));
+            setUser(response.data.user);
+        }
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+}
