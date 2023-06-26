@@ -4,5 +4,7 @@ export function userReducer(state,action){
             return {...state,bookMarks:action.payload};
         case "SET_ALL_USERS":
             return {...state,allUsers:action.payload};
+        case "SET_USERS":
+            return {...state,givenUsers:action.payload};
     }
 }

@@ -31,7 +31,7 @@ export function IndividualProfile()
         <div className="userPersonal">
             <div className="personalFollow">
                 <div>
-                    <div>{reqdUser?.firstName} {reqdUser?.lastName}</div><br />
+                    <div>{reqdUser?.firstName} {reqdUser?.lastName}</div>
                     <div>@{reqdUser?.username}</div>
                     <div>{reqdUser?.bio}</div>
                 </div>

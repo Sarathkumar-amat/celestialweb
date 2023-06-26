@@ -7,10 +7,10 @@ import { findUser } from "../../../Utils/userName"
 import { AuthContext } from "../../../contexts/AuthProvider"
 import { PostContext } from "../../../contexts/PostProvider"
 import { UserContext } from "../../../contexts/UserProvider"
-import "./PostCard.css"
+import "./UserPost.css"
 import {useContext} from "react"
 
-export function PostCard({singlePost})
+export function UserPost({singlePost})
 {
     const {content,username,createdAt,updatedAt} = singlePost
     const {postState,dispatchPost} = useContext(PostContext);
@@ -30,6 +30,7 @@ export function PostCard({singlePost})
                     <div>{username}</div> 
                     <div>{getUser?.firstName} {getUser?.lastName}</div>
                 </div>
+                <i class="bi bi-three-dots-vertical"></i>
             </div>
        </div>
         <p>{content}</p>

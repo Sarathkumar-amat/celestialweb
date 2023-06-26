@@ -17,13 +17,14 @@ export function UserProvider({children})
         bookMarks:[],
         followers:[],
         following:[],
-        allUsers:[]
+        allUsers:[],
+        givenUsers:[]
     })
     const token = localStorage.getItem("token");
     console.log(userState.allUsers);
     const getAllUsersFromAPI = async()=>{
         const users = await getAllUsers(dispatchUser);
-        console.log(user?.username);
+        dispatchUser({type:"SET_USERS",payload:users});
         const userList = users.filter(({username})=>username!==user?.username);
         dispatchUser({type:"SET_ALL_USERS",payload:userList})
     }

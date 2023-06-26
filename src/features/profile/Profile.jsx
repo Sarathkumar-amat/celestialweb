@@ -5,7 +5,7 @@ import "./Profile.css"
 import { useEffect } from "react";
 import { getUserPost } from "../../Services/getPostServices";
 import { useState } from "react";
-import { PostCard } from "../home/components/PostCard";
+import { UserPost } from "./components/UserPost";
 
 export function Profile()
 {
@@ -21,28 +21,38 @@ export function Profile()
         getPostFromAPI(user?.username)},[user]);
         console.log(userPosts);
     return (<div className="profileParent">
-         <div className="editBox">
+
+            <div>
             {editModel && <EditProfile closeModal={setEditModel}/>}
-        </div>
-        <div className="child1">
-        This is profile page
-        </div>
+            </div>
        
-        {/* <div className="overlay">
-            <EditProfile />
-        </div> */}
+        <div className="child1">
+        </div>
        
         <div>
-            <h2>{user?.firstName} {user?.lastName}</h2>
-            <p>@{user?.username}</p>
-            <button onClick={()=>setEditModel(!editModel)}>Edit profile</button>
-            <p>{user?.bio}</p>
-            <p>following</p>
-            <p>{user?.followers.length} followers</p>
-            <p>{user?.following.length} following</p>
+        <div className="myPersonal">
+            <div className="userProfileImgContainer">
+                <img className="profileImg" src={user?.profileImg} alt="profile"/>
+            </div>
+            <div className="bioActivity">
+                <div className="bioEdit">
+                    <div className="bioData">
+                        <div className="userFullName">{user?.firstName} {user?.lastName}</div>
+                        <p>@{user?.username}</p>
+                        <p>{user?.bio}</p>
+                    </div>
+                   <button className="editButton" onClick={()=>setEditModel(!editModel)}>Edit profile</button>
+                </div>
+                
+                <div className="myActivity">
+                    <p>{user?.followers.length} followers</p>
+                    <p>{user?.following.length} following</p>
+                </div>
+            </div>
+        </div>
             <h2>Your Posts</h2>
             <div>{userPosts?.map(post=><div>
-                <PostCard singlePost={post} />
+                <UserPost singlePost={post} />
             </div>)}</div>
         </div>
     </div>)

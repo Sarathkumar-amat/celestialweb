@@ -22,6 +22,21 @@ export const users = [
     
   },
   {
+    _id: uuid(),
+    firstName: "Shubam",
+    lastName: "Soni",
+    username: "shubhamsoni",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    password: "shubhamsoni123",
+    bio: "There is no paradise",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    profileImg:"http://surl.li/ijvfa"
+    
+  },
+  {
     _id: "s2pXjVEq-a",
     firstName: "John",
     lastName: "Doe",

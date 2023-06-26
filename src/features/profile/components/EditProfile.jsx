@@ -20,17 +20,19 @@ export function EditProfile({closeModal})
         setAvatar(newSrc);
     }
     console.log(user);
-    return (<div className="modelBackground">
-        <div className="modelContainer">
-            <div className="profileImgContainer">
-                <img src={user?.profileImg} className="profileImg" alt="profilePic" />
+    return (<div className="overLayModal">
+        <div className="modelBackground">
+            <div className="modelContainer">
+                <div className="profileImgContainer">
+                    <img src={user?.profileImg} className="profileImg" alt="profilePic" />
+                </div>
+            
+                <label htmlFor="editAvatar">Edit Profile Image</label>
+                <input onChange={(event)=>handleProfilePic(event)}type="file" accept="image/jpeg, image/png, image/jpg" id="editAvatar"/>
+                <input onChange={(event)=>setBio(event.target.value)}type="text" defaultValue={user?.bio}/>
+                <button onClick={()=>closeModal(false)}>Close</button>
+                <button onClick={handleUpdate}>Update</button>
             </div>
-           
-            <label htmlFor="editAvatar">Edit Profile Image</label>
-            <input onChange={(event)=>handleProfilePic(event)}type="file" accept="image/jpeg, image/png, image/jpg" id="editAvatar"/>
-            <input onChange={(event)=>setBio(event.target.value)}type="text" defaultValue={user?.bio}/>
-            <button onClick={()=>closeModal(false)}>Close</button>
-            <button onClick={handleUpdate}>Update</button>
         </div>
     </div>)
 }
