@@ -1,4 +1,19 @@
 .userList{
     border: 1px solid black;
     padding:20px;
+    width: 200px;
+}
+.userBlock{
+    display: flex;
+    justify-content: space-between;
+}
+/* .allUsers{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+} */
+.followButton{
+   
 }

@@ -9,4 +9,5 @@
   .feature {
     display: flex;
     margin: 10px;
+    cursor: pointer;
   }

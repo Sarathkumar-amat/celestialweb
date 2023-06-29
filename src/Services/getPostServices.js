@@ -50,3 +50,21 @@ export const doDeletePost = async(postId,token,dispatch)=>{
         console.log(error)
     }
 }
+export const doEditPost = async (postId,postData,token,dispatch)=>{
+    try{
+        const response = await axios.post(`/api/posts/edit/${postId}`,{postData},{
+            headers:{
+                authorization:token
+            }
+        })
+        console.log(response);
+        if(response.status==201)
+        {
+            dispatch({type:"EDIT_POST",payload:response.data.posts});
+        }
+
+    }catch(error)
+    {
+        console.log(error);
+    }
+}

@@ -1,5 +1,8 @@
 .postCard{
     border: 1px solid black;
+    width: 500px;
+    padding:20px;
+    margin:20px;
 }
 .opDetails{
     display: flex;
@@ -8,4 +11,52 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+.editOptions{
+    cursor: pointer;
+}
+.menuContainer{
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+.buttonMenu{
+    display: flex;
+    flex-direction: column;
+    
+}
+.postCardOptions{
+    display: flex;
+    justify-content: space-between;
+}
+.nameAndDate{
+    display: flex;
+}
+.createdDate{
+    margin-left: 20px;
+    font-size: 13px;
+    font-weight: lighter;
+}
+.fullName{
+    font-weight: bold;
+}
+.userName{
+    font-weight: lighter;
+}
+.userPicContainer{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px ;
+}
+.userPicContainer img{
+    width:100%;
+    top:0;
+}
+.EditBg{
+    
+    
 }

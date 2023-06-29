@@ -10,6 +10,7 @@ import { AllUsers } from './features/home/Suggestions/AllUsers';
 import { IndividualProfile } from './features/IndividualProfile/IndividualProfile';
 import { SideBar } from './features/sidebar/SideBar';
 import { NavBar } from './features/navBar/NavBar';
+import { Explore } from './features/explore/Explore';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<RequiresAuth><Home /> </RequiresAuth>} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/explore" element={<Explore />} />
             <Route path="/userProfile/:userName" element={<IndividualProfile />} />
             <Route path="/login" element={<Login />} />
           </Routes>

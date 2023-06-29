@@ -1,13 +1,15 @@
+import { useNavigate } from "react-router-dom"
 import "./SideBar.css"
 
 export function SideBar()
 {
+    const navigate = useNavigate();
     return ( <div className="sideBarOptions">
-    <div className="feature">
+    <div onClick={()=>navigate("/")} className="feature">
       <i class="bi bi-house"></i>
       <div>Home</div>
     </div>
-    <div className="feature">
+    <div onClick={()=>navigate("/explore")} className="feature">
       <i class="bi bi-rocket"></i>
       <div>Explore</div>
     </div>

@@ -1,16 +1,27 @@
 .HomePage{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .homeComponent{
     margin:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
 }
 .postText{
    margin:20px;
     border: none;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: 0.1rem solid transparent;
 }
 .postComp{
     border: 1px solid black;
-    width:700px;
+    width:500px;
     display: flex;
     position: relative;
 }
@@ -32,6 +43,8 @@
     top:0;
 }
 .individualPost{
-    width:800px;
-    margin:40px;
+    width:600px;
+    margin:10px;
+    display: flex;
+    justify-content: center;
 }

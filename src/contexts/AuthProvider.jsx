@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext,useState } from "react";
+import { createContext,useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
@@ -10,14 +10,32 @@ export function AuthProvider({children})
     // console.log(localStorage.getItem("user"));
     const localStorageUser = JSON.parse(localStorage.getItem("user"));
     // const localStorageUser = localStorage.getItem("user");
-    console.log(localStorageUser);
-    const navigate=useNavigate();
-    // localStorageUser?.user
     
+    const navigate=useNavigate();
+    const getUser = async(userId)=>{
+        console.log(userId);
+        try{
+            const res = await axios.get(`/api/users/${userId}`);
+            console.log(res);
+            localStorage.setItem("user",JSON.stringify(res.data.user));
+            setUser(res.data.user);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
+ 
+    useEffect(()=>{
+        if(user?.username)
+        {
+            getUser(user?._id);
+        }
+    },[])
     const [user,setUser] = useState(localStorageUser);
     const val = 28;
     // const [user,setUser] = useState(null);
-    console.log(user);
+    // console.log(user);
     const loginUser = async (userName,passWord)=>{
         console.log("here login user");
         if(userName!=="" && passWord!=="")
@@ -27,13 +45,9 @@ export function AuthProvider({children})
                     username:userName,
                     password:passWord
                 })
-                console.log(data);
                 if(status===200){
                 localStorage.setItem("user",JSON.stringify(data.foundUser));
                 localStorage.setItem("token",data.encodedToken);
-                
-               
-                console.log(data.foundUser);
                 setUser(data.foundUser);
                 navigate("/");
                 }

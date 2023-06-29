@@ -7,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id: uuid(),
+    _id: "x9rEfGhi-c",
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
@@ -22,7 +22,7 @@ export const users = [
     
   },
   {
-    _id: uuid(),
+    _id: "m1qAbCDr-b",
     firstName: "Shubam",
     lastName: "Soni",
     username: "shubhamsoni",
@@ -33,7 +33,7 @@ export const users = [
     bio: "There is no paradise",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    profileImg:"http://surl.li/ijvfa"
+    profileImg:"https://rb.gy/mg3a2"
     
   },
   {

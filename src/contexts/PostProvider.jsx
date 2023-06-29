@@ -1,12 +1,13 @@
 import { createContext, useEffect, useReducer } from "react"
 import { postReducer } from "../reducer/PostReducer";
 import axios from "axios";
+import { useState } from "react";
 
 export const PostContext = createContext();
 
 export function PostProvider({children})
 {
-    
+    const [showMenu,setShowMenu] = useState(false);
     const [postState,dispatchPost] = useReducer(postReducer,{
         posts:[],
         sortType:""
@@ -29,7 +30,7 @@ export function PostProvider({children})
         getPostData()
     },[dispatchPost])
     return (<div>
-        <PostContext.Provider value={{postState,dispatchPost}}>
+        <PostContext.Provider value={{postState,dispatchPost,showMenu,setShowMenu}}>
             {children}
         </PostContext.Provider>
     </div>)

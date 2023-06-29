@@ -1,5 +1,7 @@
 .postCard{
-    border: 1px solid black;
+    width: 500px;
+    padding:20px;
+    margin:20px;
 }
 .opDetails{
     display: flex;
@@ -8,4 +10,30 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+.opPersonal{
+    display: flex;
+    position: relative;
+}
+.postCardOptions{
+    display: flex;
+    justify-content: space-between;
+}
+.fullName{
+    font-weight: bold;
+}
+.userName{
+    font-weight: lighter;
+}
+.userPicContainer{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px ;
+    position: relative;
+}
+.userPicContainer img{
+    width:100%;
+    top:0;
 }
