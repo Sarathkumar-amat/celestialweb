@@ -9,6 +9,7 @@ import { doPost } from "../../Services/getPostServices";
 import "./Home.css";
 import { UserPost } from "../profile/components/UserPost";
 import { filterByFollowing } from "./filterFunctions/FilterFollowing";
+import { toast } from "react-toastify";
 
 export function Home()
 {
@@ -23,22 +24,24 @@ export function Home()
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         setUser();
-        console.log(localStorage.getItem("token"));
-        navigate("/login");
+        // navigate("/login");
     }
     const handleSubmitPost = (event)=>{
             event.preventDefault();
             if(postContent!=="")
             {
-                console.log("going to post")
                 doPost({content:postContent},token,dispatchPost)
                 setPostContent("");
+                toast.success("Posted Successfully",{
+                    position: toast.POSITION.BOTTOM_RIGHT
+                  })
             }
     }
     
     const [postContent, setPostContent] = useState("");
-    console.log(postContent);
+    // console.log(postContent);
     return (<div className="HomePage">
+        <button onClick={()=>navigate("/signUp")}>Sign Up</button>
         <div className="homeComponent">
             {(postState?.sortType==="oldest" || postState?.sortType==="") && 
             <button onClick={()=>dispatchPost({type:"SET_SORT",payload:"latest"})}>latest</button>}
@@ -55,9 +58,10 @@ export function Home()
                     <textarea value={postContent} className="postText" onChange={(event)=>setPostContent(event.target.value)} 
                     placeholder="Hey! What's happening"></textarea>
                     <div className="submitContainer">
-                        <button className="postButton">Submit</button>
+                        <button className="postButton">Post</button>
                     </div>
                 </div>
+                <hr />
             </form>
             <h2>Latest Posts</h2>
             {/* <img src="http://surl.li/ijvfa" alt="profile"/>  */}

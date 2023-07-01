@@ -1,0 +1,6 @@
+.TrendingButton{
+    border: 1px solid black;
+    padding: 5px;
+    width: fit-content;
+    cursor: pointer;
+}

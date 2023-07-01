@@ -18,19 +18,22 @@ export function AllUsers()
     const followingUsers = user?.following?.map(({username})=>username);
     const displayUsers = userState?.allUsers.reduce((initVal,current)=>!followingUsers?.includes(current?.username)?[...initVal,current]:initVal,[])
     return (<div className="userList">
-        <h4>Suggestions for you</h4>
-       <div className="allUsers"> {displayUsers.map(({_id,username,firstname,lastname})=>
+        <div className="SuggestionTitle">Suggestions for you</div>
+       <div className="allUsers"> {displayUsers.map(({_id,username,firstName,lastName,profileImg})=>
             <div>
                 <div className="userBlock">
-                <div onClick={()=>navigate(`/userProfile/${username}`)}>@{username}</div>
-           <button className="followButton" onClick={()=>doFollow(_id,token,setUser)}>Follow</button>
-           
-            </div>
+                    <div className="userImgContainer">
+                        <img src={profileImg} alt="profile"/>
+                    </div>
+                    <div className="userNameDetails" onClick={()=>navigate(`/userProfile/${username}`)}>
+                        <div>{firstName} {lastName} </div>
+                        <div>@{username}</div>
+                    </div>
+                    <div className="doFollow" onClick={()=>doFollow(_id,token,setUser)}>Follow</div>
+                 </div>
             <hr></hr>
-        </div>)}
-            
+        </div>)}  
         </div>
-        <button onClick={()=>navigate("/profile")}>profile</button>
     </div>)
 }
 // {checkFollowing(_id) && <button className="followButton" onClick={()=>doUnfollow(_id,token,setUser)}>unfollow</button>}

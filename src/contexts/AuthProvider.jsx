@@ -10,7 +10,7 @@ export function AuthProvider({children})
     // console.log(localStorage.getItem("user"));
     const localStorageUser = JSON.parse(localStorage.getItem("user"));
     // const localStorageUser = localStorage.getItem("user");
-    
+    const [user,setUser] = useState(localStorageUser);
     const navigate=useNavigate();
     const getUser = async(userId)=>{
         console.log(userId);
@@ -26,14 +26,14 @@ export function AuthProvider({children})
         }
     }
  
-    useEffect(()=>{
-        if(user?.username)
-        {
-            getUser(user?._id);
-        }
-    },[])
-    const [user,setUser] = useState(localStorageUser);
-    const val = 28;
+    // useEffect(()=>{
+    //     if(user?.username)
+    //     {
+    //         getUser(user?._id);
+    //     }
+    // },[])
+    
+   
     // const [user,setUser] = useState(null);
     // console.log(user);
     const loginUser = async (userName,passWord)=>{
@@ -59,7 +59,7 @@ export function AuthProvider({children})
         }
     }
     return (<div>
-        <AuthContext.Provider value={{loginUser,user,setUser,val}}>
+        <AuthContext.Provider value={{loginUser,user,setUser}}>
             {children}
         </AuthContext.Provider>
     </div>)

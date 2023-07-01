@@ -8,6 +8,7 @@ import { PostProvider } from './contexts/PostProvider';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthProvider';
 import { UserProvider } from './contexts/UserProvider';
+import RequiresAuth from './features/authentication/RequiresAuth';
 
 makeServer();
 
@@ -15,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-    <AuthProvider>
+  <AuthProvider>
         <UserProvider>
         <PostProvider>
         
@@ -24,6 +25,7 @@ root.render(
         </PostProvider>
         </UserProvider>
         </AuthProvider>
+      
     </Router>
   </React.StrictMode>
 );

@@ -12,7 +12,7 @@
     width: 600px;
 }
 .postText{
-   margin:20px;
+    margin:10px;
     border: none;
     width: 100%;
     height: 100%;
@@ -20,7 +20,7 @@
     outline: 0.1rem solid transparent;
 }
 .postComp{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width:500px;
     display: flex;
     position: relative;
@@ -30,6 +30,7 @@
     width: 50px;
     border-radius: 50%;
     overflow: hidden;
+    margin:10px;
 }
 .profileImgContainer img{
     width:100%;
@@ -41,6 +42,13 @@
 .postButton{
     bottom: 0;
     top:0;
+    margin:10px;
+    padding: 10px;
+    background-color: #1976d2;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
 }
 .individualPost{
     width:600px;

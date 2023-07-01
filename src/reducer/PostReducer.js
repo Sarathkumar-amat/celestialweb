@@ -14,6 +14,8 @@ export function postReducer(state,action)
             return {...state,posts:action.payload};
         case "EDIT_POST":
             return {...state,posts:action.payload};
+        case "SET_TRENDING":
+            return {...state,trending:!state.trending};
        
     }
 }

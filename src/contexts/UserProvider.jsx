@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthProvider";
 export const UserContext = createContext();
 export function UserProvider({children})
 {
-    const {user,setUser,val} = useContext(AuthContext);
+    const {user,setUser} = useContext(AuthContext);
     // console.log(user); 
     // console.log(val);
    
@@ -21,7 +21,6 @@ export function UserProvider({children})
         givenUsers:[]
     })
     const token = localStorage.getItem("token");
-    console.log(userState.allUsers);
     const getAllUsersFromAPI = async()=>{
         const users = await getAllUsers(dispatchUser);
         dispatchUser({type:"SET_USERS",payload:users});
@@ -42,10 +41,10 @@ export function UserProvider({children})
     }
     }
     useEffect(()=>{
-        getAllBookMarks(token)
-        getAllUsersFromAPI()
+        token && getAllBookMarks(token);
+        getAllUsersFromAPI();
         
-    },[dispatchUser,user]);
+    },[]);
     return (
         <div>    
             <UserContext.Provider value={{userState,dispatchUser}}>

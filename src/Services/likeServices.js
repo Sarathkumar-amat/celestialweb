@@ -12,6 +12,7 @@ export const addLike = async(postId,encodedToken,dispatchPost)=>{
         });
         if(response.status===201)
         {
+            console.log(response);
             dispatchPost({type:"SET_POSTS",payload:response.data.posts})
         }
     }
@@ -33,6 +34,7 @@ export const doDislike = async(postId,encodedToken,dispatchPost)=>{
         });
         if(response.status===201)
         {
+            console.log(response);
             dispatchPost({type:"SET_POSTS",payload:response.data.posts})
         }
     }
@@ -41,3 +43,20 @@ export const doDislike = async(postId,encodedToken,dispatchPost)=>{
         console.error(error);
     }
 }
+
+// createdAt: 
+// "2023-06-30T16:57:44+05:30"
+// firstName: 
+// "Adarsh"
+// followers: 
+// []
+// following: 
+// []
+// lastName: 
+// "Balika"
+// updatedAt: 
+// "2023-06-30T16:57:44+05:30"
+// username: 
+// "adarshbalika"
+// _id: 
+// "x9rEfGhi-c"

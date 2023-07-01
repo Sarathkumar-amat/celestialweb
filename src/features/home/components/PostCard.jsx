@@ -43,15 +43,21 @@ export function PostCard({singlePost})
         <p>{updatedAt}</p>
       
         <div className="postCardOptions">
+            <div className="LikeContainer">
             {checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
             <i onClick={()=>doDislike(singlePost?._id,token,dispatchPost)} style={{color:"red"}} class="bi-heart-fill"></i>}
         {!checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
             <i onClick={()=>addLike(singlePost?._id,token,dispatchPost)} class="bi-heart"></i>}
+                <div className="likeCount">{singlePost?.likes?.likeCount}</div>
+            </div>
             <i class="bi-chat-left"></i>
             <i class="bi-share"></i>
+            <div>
             {!checkBookMarked(userState.bookMarks,singlePost?._id) ? <i onClick={()=>addBookMark(singlePost?._id,token,dispatchUser)}class="bi-bookmark"></i>
         : <i onClick={()=>removeBookMark(singlePost?._id,token,dispatchUser)} class="bi-bookmark-fill"></i>}
+        </div>
        </div>
-        <button onClick={()=>doDeletePost(singlePost?._id,token,dispatchPost)}>delete</button>
+        
     </div>)
 }
+{/* <button onClick={()=>doDeletePost(singlePost?._id,token,dispatchPost)}>delete</button> */}

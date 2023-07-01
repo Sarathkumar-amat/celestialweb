@@ -13,11 +13,11 @@ export function SideBar()
       <i class="bi bi-rocket"></i>
       <div>Explore</div>
     </div>
-    <div className="feature">
+    <div onClick={()=>navigate("/bookMarks")} className="feature">
       <i class="bi bi-bookmark-check"></i>
       <div>Bookmarks</div>
     </div>
-    <div className="feature">
+    <div onClick={()=>navigate("/profile")} className="feature">
       <i class="bi bi-person-circle"></i>
       <div>Profile</div>
     </div>

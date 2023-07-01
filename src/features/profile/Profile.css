@@ -74,9 +74,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-.content{
-    width:200px;
-}
 .userRoute{
     cursor: pointer;
     margin:10px;
@@ -93,3 +90,4 @@
     padding: 20px;
     z-index: 10000;
   }
+  

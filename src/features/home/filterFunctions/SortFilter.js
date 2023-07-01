@@ -15,5 +15,18 @@ export function sortFilter(postArray,sortType)
             return d1-d2;
         })
     }
+    // else if(sortType==="trending")
+    // {
+
+    // }
    return postArray;
+}
+export function trendingSort(postArray,doTrending)
+{
+    if(doTrending)
+    {
+        const newArray = postArray?.sort((a,b)=>b.likes.likeCount-a.likes.likeCount);
+        return newArray;
+    }
+    return postArray;
 }

@@ -26,6 +26,7 @@ export function UserPost({singlePost})
     const userValues = user;
     const date = new Date(createdAt);
     const menuRef = useRef();
+    const editRef = useRef();
     const [showMenu,setShowMenu] = useState(false);
     const [showEdit,setShowEdit] = useState(false);
     // console.log(date);
@@ -34,14 +35,28 @@ export function UserPost({singlePost})
     
    
     const getUser = findUser(userState?.givenUsers,username);
-    window.addEventListener("click",(e)=>{
-        e.stopPropagation();
-        // console.log(e.target===menuRef.current);
-        if(e.target!==menuRef.current)
-        {
-            setShowMenu(false);
-        }
-    })
+    useEffect(()=>{
+        document.addEventListener("click",(event)=>{
+            event.stopPropagation();
+            // console.log(e.target===menuRef.current);
+            if(event.target!==menuRef.current)
+            {
+                setShowMenu(false);
+            }
+            console.log("here there editprofile")
+            console.log(editRef.current);
+            if(editRef.current && !editRef.current.contains(event.target))
+            {
+                setShowEdit(false);
+            }
+        })
+    },[])
+    // window.addEventListener("click",(e)=>{
+    //     e.stopPropagation();
+    //     // console.log(e.target===menuRef.current);
+    //     console.log("edit box");
+        
+    // })
     // console.log(showMenu);
     return (<div className="postCard">
         <div className="opDetails">
@@ -69,7 +84,7 @@ export function UserPost({singlePost})
                     } class="bi bi-three-dots-vertical"></i>
                     </div>
                     <div ref={menuRef}>{showMenu && <div ref={menuRef}> <Menu postObj={singlePost} refr={menuRef} setMenu={setShowMenu} setEdit={setShowEdit}/> </div>}</div>
-                    {showEdit && <div className="EditBg"><EditPost postObj={singlePost} setEdit={setShowEdit}/></div>}
+                    {showEdit && <div className="EditBg"><EditPost postObj={singlePost} setEdit={setShowEdit} editRef={editRef}/></div>}
                 </div>
             </div>
        </div>
@@ -78,11 +93,14 @@ export function UserPost({singlePost})
         <p>{updatedAt}</p>
       
         <div className="postCardOptions">
-            {checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
-            <i onClick={()=>doDislike(singlePost?._id,token,dispatchPost)} 
-            style={{color:"red"}} class="bi-heart-fill"></i>}
-            {!checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
-            <i onClick={()=>addLike(singlePost?._id,token,dispatchPost)} class="bi-heart"></i>}
+            <div className="LikeContainer">
+                {checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
+                <i onClick={()=>doDislike(singlePost?._id,token,dispatchPost)} 
+                style={{color:"red"}} class="bi-heart-fill"></i>}
+                {!checkIfLikedByUser(postState?.posts,singlePost?._id,userValues?.username) &&
+                <i onClick={()=>addLike(singlePost?._id,token,dispatchPost)} class="bi-heart"></i>}
+                <div className="likeCount">{singlePost?.likes?.likeCount}</div>
+            </div>
             <i class="bi-chat-left"></i>
             <i class="bi-share"></i>
             {!checkBookMarked(userState.bookMarks,singlePost?._id) ? 

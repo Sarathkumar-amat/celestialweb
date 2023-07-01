@@ -10,7 +10,8 @@ export function PostProvider({children})
     const [showMenu,setShowMenu] = useState(false);
     const [postState,dispatchPost] = useReducer(postReducer,{
         posts:[],
-        sortType:""
+        sortType:"",
+        trending:false
     })
     const getPostData = async()=>{
         try{
@@ -28,7 +29,7 @@ export function PostProvider({children})
     
     useEffect(()=>{
         getPostData()
-    },[dispatchPost])
+    },[]);
     return (<div>
         <PostContext.Provider value={{postState,dispatchPost,showMenu,setShowMenu}}>
             {children}

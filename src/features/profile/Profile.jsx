@@ -34,7 +34,7 @@ export function Profile()
                 setFollowingModel(false);
             }
         })
-   },[postState])
+   },[])
    const handleFollowDisplay = (e)=>
    {
     e.stopPropagation();
@@ -42,7 +42,7 @@ export function Profile()
     setFollowingModel(true);
    }
     useEffect(()=>{
-        getPostFromAPI(user?.username)},[user,postState,dispatchPost]);
+        getPostFromAPI(user?.username)},[setUserPosts]);
 
 
         // console.log(userPosts);

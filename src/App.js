@@ -11,6 +11,10 @@ import { IndividualProfile } from './features/IndividualProfile/IndividualProfil
 import { SideBar } from './features/sidebar/SideBar';
 import { NavBar } from './features/navBar/NavBar';
 import { Explore } from './features/explore/Explore';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { BookMarks } from './features/bookMarks/BookMarks';
+import { SignUp } from './features/authentication/authPages/SignUp';
 
 
 function App() {
@@ -20,14 +24,17 @@ function App() {
     <div className="App">
       {/* <h1>Celestial Web - Social Media App</h1> */}
       {/* <MockAPI /> */}
-      <NavBar/>
+     <RequiresAuth> <NavBar/> </RequiresAuth>
+      <ToastContainer />
      <div className="allComponents">
           <RequiresAuth><SideBar /></RequiresAuth>
           <Routes>
             <Route path="/" element={<RequiresAuth><Home /> </RequiresAuth>} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/userProfile/:userName" element={<IndividualProfile />} />
+            <Route path="/profile" element={<RequiresAuth><Profile /> </RequiresAuth>} />
+            <Route path="/explore" element={<RequiresAuth><Explore /> </RequiresAuth>} />
+            <Route path="/bookMarks" element={<RequiresAuth><BookMarks /> </RequiresAuth>} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/userProfile/:userName" element={<RequiresAuth><IndividualProfile /> </RequiresAuth>} />
             <Route path="/login" element={<Login />} />
           </Routes>
           <RequiresAuth><AllUsers /> </RequiresAuth>
