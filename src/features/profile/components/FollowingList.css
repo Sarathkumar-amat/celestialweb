@@ -1,0 +1,30 @@
+.usersPicContainer{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.usersPicContainer img{
+    width: 40px;
+    height: 40px;
+    /* object-fit: cover; */
+    border-radius: 50%;
+}
+.userPart{
+    display: flex;
+}
+.userRoute{
+    cursor: pointer;
+    margin:5px;
+}
+.following-box{
+    display: flex;
+    justify-content: space-between;
+}
+.unfollow-button{
+    border: 1px solid black;
+    padding: 5px;
+    font-size: small;
+    cursor: pointer;
+}

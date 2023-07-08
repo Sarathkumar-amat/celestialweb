@@ -1,8 +1,9 @@
 .postCard{
-    border: 1px solid black;
+    border-radius: 5px;
     width: 500px;
     padding:20px;
     margin:20px;
+    background-color: white;
 }
 .opDetails{
     display: flex;
@@ -38,16 +39,15 @@
 .userName{
     font-weight: lighter;
 }
-.userPicContainer{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px ;
+.myPic-container{
+    height: 70px;
+    width: 70px;
 }
-.userPicContainer img{
-    width:100%;
-    top:0;
+.myPic-container img{
+    width: 50px;
+    height: 50px;
+    /* object-fit: cover; */
+    border-radius: 50%;
 }
 .LikeContainer{
     display: flex;

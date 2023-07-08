@@ -1,10 +1,9 @@
 .App {
-  
-}
-.allComponents{
   display: flex;
-  justify-content: space-around;
+  
+  position: relative;
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

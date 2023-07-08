@@ -1,0 +1,88 @@
+:root {
+    --bgColor: rgba(13, 133, 169, 0.957);
+    --textColor: rgb(230, 223, 223);
+  }
+.LoginDetails{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 400px;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.4);
+    font-weight: bold;
+}
+.loginPage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.signUpButton{
+    background-color: var(--bgColor);
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:var(--textColor);
+    cursor: pointer;
+
+}
+.loginButton{
+    background-color: white;
+    padding: 5px;
+    border:1px solid black;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:black;
+    margin:10px 0px;
+    cursor: pointer;
+    
+}
+.doSignUp{
+    text-align: center;
+    display: block;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.loginText{
+    /* width: 400px; */
+
+}
+.passwordContainer{
+    position: relative;
+}
+.email,.pwd{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.passwordContainer input,.email input{
+    width: 300px;
+    padding: 5px;
+}
+.bi-eye,.bi-eye-slash{
+    position: absolute;
+    top: 10%;
+    right: 4%;
+    cursor: pointer;
+    color: lightgray;
+  }
+  #eye{
+    font-size: large;
+  }
+  .loginButton{
+    padding: 5px;
+    color: white;
+    background-color: black;
+  }
+  .signUpLink{
+    font-weight: lighter;
+    text-decoration: underline;
+    cursor: pointer;
+  }

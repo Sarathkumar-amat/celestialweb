@@ -14,7 +14,7 @@ export function AllUsers()
     // const checkFollowing = (userId) =>{
     //     return user?.following?.find(({_id})=>_id===userId)?true:false;
     // }
-    console.log(user);
+    // console.log(user);
     const followingUsers = user?.following?.map(({username})=>username);
     const displayUsers = userState?.allUsers.reduce((initVal,current)=>!followingUsers?.includes(current?.username)?[...initVal,current]:initVal,[])
     return (<div className="userList">

@@ -1,9 +1,21 @@
+:root{
+    --pink: #ff3d64;
+}
+/* .sideBar,.allUsers{
+    height: 100%;
+} */
 
+.profileParent{
+    /* display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 100vw;;
+    height: 100vh */
+
+}
 .modelBackground{
    
-   height: 100vh;
-  
-   width: 100vw;
+    height: 100vh;
+    width: 100vw;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -30,29 +42,40 @@
     padding: 25px;
     z-index: 10000;
   }
-  .userProfileImgContainer{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px ;
+  .myProfileImg-container{
+    height: 120px;
+    width: 120px;
+    /* border-radius: 50%; */
+    /* overflow: hidden; */
+    
   }
-  .userProfileImgContainer img{
-    width:100%;
-    top:0;
+  .myProfileImg-container img{
+    /* width:100%;
+    top:0; */
+    width: 100px;
+    height: 100px;
+    /* object-fit: cover; */
+    border-radius: 50%;
 }
 .myPersonal{
     display: flex;
-    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
     padding: 20px;
+    /* justify-content: space-between; */
+    width: fit-content;
+  
 }
 .myActivity{
     display: flex;
+    font-weight: bold;
     justify-content: space-between;
+    cursor: pointer;
 }
 .bioEdit{
     display: flex;
     justify-content: space-between;
+    margin: 20px;
 }
 .editButton{
     font-weight: bold;
@@ -60,7 +83,7 @@
     height: fit-content;
     padding: 10px;
     cursor: pointer;
-    background-color: #1976d2;
+    background-color:#1976d2 ;
     color: white;
     border-radius: 5px;
     border: none;
@@ -68,7 +91,7 @@
 .bioActivity{
     display: flex;
     flex-direction: column;
-    width:300px;
+    width:fit-content;
 }
 .userFullName{
     font-size: 20px;
@@ -89,5 +112,24 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
     z-index: 10000;
+  }
+  .editLogout{
+    display: flex;
+    cursor: pointer;
+    margin-left: 40px;
+  }
+  .logout{
+    margin-left: 10px;
+  }
+  .bi-box-arrow-right{
+        font-size: x-large;
+  }
+  .profilePageContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    /* height: 100%;
+    overflow-y: auto; */
   }
   

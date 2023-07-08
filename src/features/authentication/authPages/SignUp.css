@@ -1,0 +1,46 @@
+.createAccountDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signUpForm{
+    box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.4);
+    padding: 20px;
+    margin:30px;
+    width: 400px;
+}
+.emailInp,.firstnameInp,.lastNameInp,.pwdInput,.userNameInp{
+    height: 20px;
+    width:200px ;
+}
+.firstName,.lastName,.emailNew,.pwd,.confPwd,.usersName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 5px;
+}
+.pwdContainer{
+    position: relative;
+}
+.bi-eye,.bi-eye-slash{
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    cursor: pointer;
+    color: lightgray;
+  }
+  .signUpButton{
+    background-color: black;
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:white;
+    cursor: pointer;
+}
+.signUp{
+    display: flex;
+    justify-content: center;
+}

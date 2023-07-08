@@ -1,7 +1,7 @@
 import { useContext, useReducer, useState } from "react"
 import { PostContext } from "../../contexts/PostProvider"
 import { PostCard } from "./components/PostCard";
-import { sortFilter } from "./filterFunctions/SortFilter";
+import { sortFilter, trendingSort } from "./filterFunctions/SortFilter";
 import { AllUsers } from "./Suggestions/AllUsers";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -10,6 +10,7 @@ import "./Home.css";
 import { UserPost } from "../profile/components/UserPost";
 import { filterByFollowing } from "./filterFunctions/FilterFollowing";
 import { toast } from "react-toastify";
+import { SideBar } from "../sidebar/SideBar";
 
 export function Home()
 {
@@ -18,13 +19,18 @@ export function Home()
     const navigate = useNavigate();
     let displayPosts = postState?.posts;
     const token = localStorage.getItem("token");
-    displayPosts = sortFilter(displayPosts,postState?.sortType);
+    // displayPosts = sortFilter(displayPosts,postState?.sortType);
     displayPosts = filterByFollowing(displayPosts,user?.following,user?.username);
-    const handleLogout = ()=>{
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        setUser();
-        // navigate("/login");
+    displayPosts = sortFilter(displayPosts,postState?.sortType);
+    displayPosts = trendingSort(displayPosts,postState?.trending);
+    // const handleLogout = ()=>{
+    //     localStorage.removeItem("token");
+    //     localStorage.removeItem("user");
+    //     setUser();
+    //     navigate("/login");
+    // }
+    const handleTrendingClick = ()=>{
+        dispatchPost({type:"SET_TRENDING",payload:null});
     }
     const handleSubmitPost = (event)=>{
             event.preventDefault();
@@ -41,20 +47,16 @@ export function Home()
     const [postContent, setPostContent] = useState("");
     // console.log(postContent);
     return (<div className="HomePage">
-        <button onClick={()=>navigate("/signUp")}>Sign Up</button>
+        {/* <div><SideBar /></div> */}
         <div className="homeComponent">
-            {(postState?.sortType==="oldest" || postState?.sortType==="") && 
-            <button onClick={()=>dispatchPost({type:"SET_SORT",payload:"latest"})}>latest</button>}
-            {postState?.sortType==="latest" && 
-            <button onClick={()=>dispatchPost({type:"SET_SORT",payload:"oldest"})}>oldest</button>}
-
+            
             <form onSubmit={(event)=>handleSubmitPost(event)}>
                 <div className="postComp">
-                <div>
+                
                     <div className="profileImgContainer">
                         <img className="profileImg" src={user?.profileImg} alt="profile"/>
                     </div>
-                </div>
+                
                     <textarea value={postContent} className="postText" onChange={(event)=>setPostContent(event.target.value)} 
                     placeholder="Hey! What's happening"></textarea>
                     <div className="submitContainer">
@@ -63,10 +65,15 @@ export function Home()
                 </div>
                 <hr />
             </form>
-            <h2>Latest Posts</h2>
+            
             {/* <img src="http://surl.li/ijvfa" alt="profile"/>  */}
         {/* <p> {user?.following.length}</p> */}
-            
+        <div className="sortButtons">
+                <button className="sortBy" onClick={()=>dispatchPost({type:"SET_SORT",payload:"latest"})}>latest</button>
+                <button className="sortBy" onClick={()=>dispatchPost({type:"SET_SORT",payload:"oldest"})}>oldest</button>
+                <button onClick={()=>handleTrendingClick()} className="sortBy">Trending</button>
+            </div>
+
             {displayPosts?.map(postData=>
             
             
@@ -74,7 +81,7 @@ export function Home()
                 {postData?.username===user?.username && <UserPost singlePost={postData}/>}
                 {postData?.username!==user?.username && <PostCard singlePost={postData}/>}
             </div>)}
-            <button onClick={()=>handleLogout()}>logout</button>
+          
         </div>
         {/* <div className="Suggestions">
             <AllUsers />

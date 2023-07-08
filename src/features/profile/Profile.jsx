@@ -9,74 +9,100 @@ import { UserPost } from "./components/UserPost";
 import { PostContext } from "../../contexts/PostProvider";
 import { FollowingList } from "./components/FollowingList";
 import { useRef } from "react";
+import { SideBar } from "../sidebar/SideBar";
+import { AllUsers } from "../home/Suggestions/AllUsers";
+import { FollowersList } from "./components/FollowersList";
+import { useNavigate } from "react-router-dom";
+import { Loader } from "../../components/Loader";
 
 export function Profile()
 {
-    const {user} = useContext(AuthContext);
+    const {user,setUser,loader,setLoader} = useContext(AuthContext);
     const {postState,dispatchPost} = useContext(PostContext);
     const [editModel,setEditModel] = useState(false);
     const [userPosts,setUserPosts] = useState([]);
     const [followingModel,setFollowingModel] = useState(false);
-    console.log(user);
+    const [followersModel,setFollowersModel] = useState(false);
     const followRef=useRef();
+    const followerRef = useRef();
+    const navigate = useNavigate();
    const getPostFromAPI = async (userName)=>{
     const postData = await getUserPost(userName);
     setUserPosts(postData);
+    setLoader(false);
    }
-   console.log(user);
+//    useEffect(()=>{
+    
+//    })
    useEffect(()=>{
         document.addEventListener("click",(event)=>{
-            console.log(followingModel);
-            console.log(followRef.current);
             if(followRef.current && !followRef.current.contains(event.target))
             {
-                console.log("is it here?")
                 setFollowingModel(false);
+            }
+            if(followerRef.current && !followerRef.current.contains(event.target))
+            {
+                setFollowersModel(false);
             }
         })
    },[])
+   const handleLogout = ()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser();
+    navigate("/login");
+}
    const handleFollowDisplay = (e)=>
    {
     e.stopPropagation();
-    console.log("handling");
     setFollowingModel(true);
    }
+   const handleFollowersDisplay = (e)=>{
+    e.stopPropagation();
+    setFollowersModel(true);    
+   }
+   useEffect(()=>{setLoader(true)},[]);
     useEffect(()=>{
-        getPostFromAPI(user?.username)},[setUserPosts]);
+        // setLoader(true);
+        getPostFromAPI(user?.username)},[postState]);
 
 
         // console.log(userPosts);
     return (<div className="profileParent">
-
+            {/* <div className="sideBar"><SideBar /></div> */}
+            
+        <div className="profilePageContent">
             <div>
             {editModel && <EditProfile closeModal={setEditModel}/>}
             </div>
-            
-                {followingModel && <FollowingList setFollowing={setFollowingModel} currRef={followRef}/>}
-           
-        <div className="child1">
-        </div>
-       
-        <div>
+            {followersModel && <FollowersList setFollowers={setFollowersModel} currRef={followerRef}/>}
+            {followingModel && <FollowingList setFollowing={setFollowingModel} currRef={followRef}/>}
         <div className="myPersonal">
-            <div className="userProfileImgContainer">
+            <div className="myProfileImg-container">
                 <img className="profileImg" src={user?.profileImg} alt="profile"/>
             </div>
+            <div>
             <div className="bioActivity">
                 <div className="bioEdit">
                     <div className="bioData">
                         <div className="userFullName">{user?.firstName} {user?.lastName}</div>
-                        <p>@{user?.username}</p>
+                        <div>@{user?.username}</div>
                         <p>{user?.bio}</p>
+                       <div> <a href={user?.website}>{user?.website}</a></div>
                     </div>
-                   <button className="editButton" onClick={()=>setEditModel(!editModel)}>Edit profile</button>
+                    <div className="editLogout">
+                        <button className="editButton" onClick={()=>setEditModel(!editModel)}>Edit profile</button>
+                        <div className="logout" onClick={()=>handleLogout()}><i class="bi bi-box-arrow-right"></i></div>
+                   </div>
                 </div>
                 
                 <div className="myActivity">
-                    <p>{user?.followers.length} followers</p>
-                    <div onClick={(e)=>handleFollowDisplay(e)}>{user?.following.length} following</div>
+                    <div>{userPosts?.length} posts</div>
+                    <div onClick={(e)=>handleFollowersDisplay(e)}>{user?.followers?.length} followers</div>
+                    <div onClick={(e)=>handleFollowDisplay(e)}>{user?.following?.length} following</div>
                 </div>
                 
+            </div>
             </div>
         </div>
             <h2>Your Posts</h2>
@@ -84,5 +110,6 @@ export function Profile()
                 <UserPost singlePost={post} />
             </div>)}</div>
         </div>
+        {/* <div className="allUsers"><AllUsers /></div> */}
     </div>)
 }

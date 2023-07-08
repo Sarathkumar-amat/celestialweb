@@ -1,0 +1,18 @@
+.BookMarksPage{
+    position: relative;
+    margin-top: 40px;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+.no-bookmark-msg{
+    
+    font-size: large;
+}
+.bookmarks-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

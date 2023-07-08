@@ -11,6 +11,7 @@ export function AuthProvider({children})
     const localStorageUser = JSON.parse(localStorage.getItem("user"));
     // const localStorageUser = localStorage.getItem("user");
     const [user,setUser] = useState(localStorageUser);
+    const [loader,setLoader] = useState(false);
     const navigate=useNavigate();
     const getUser = async(userId)=>{
         console.log(userId);
@@ -26,17 +27,17 @@ export function AuthProvider({children})
         }
     }
  
-    // useEffect(()=>{
-    //     if(user?.username)
-    //     {
-    //         getUser(user?._id);
-    //     }
-    // },[])
+    useEffect(()=>{
+        if(user?.username)
+        {
+            getUser(user?._id);
+        }
+    },[])
     
    
     // const [user,setUser] = useState(null);
     // console.log(user);
-    const loginUser = async (userName,passWord)=>{
+    const loginUser = async (userName,passWord,location)=>{
         console.log("here login user");
         if(userName!=="" && passWord!=="")
         {
@@ -49,7 +50,7 @@ export function AuthProvider({children})
                 localStorage.setItem("user",JSON.stringify(data.foundUser));
                 localStorage.setItem("token",data.encodedToken);
                 setUser(data.foundUser);
-                navigate("/");
+                (location?.state===null)?navigate("/"):navigate(location?.state?.from?.pathname);
                 }
             }
             catch(error)
@@ -59,7 +60,7 @@ export function AuthProvider({children})
         }
     }
     return (<div>
-        <AuthContext.Provider value={{loginUser,user,setUser}}>
+        <AuthContext.Provider value={{loginUser,user,setUser,loader,setLoader}}>
             {children}
         </AuthContext.Provider>
     </div>)

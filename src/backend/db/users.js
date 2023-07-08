@@ -14,6 +14,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
+    // website: "https://sarathkumar-portfolio.netlify.app/",
     password: "adarshBalika123",
     bio: "Just hang on",
     createdAt: formatDate(),
@@ -33,7 +34,7 @@ export const users = [
     bio: "There is no paradise",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    profileImg:"https://rb.gy/mg3a2"
+    profileImg:"http://surl.li/ijvfa"
     
   },
   {

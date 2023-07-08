@@ -22,6 +22,7 @@ export function UserProvider({children})
     })
     const token = localStorage.getItem("token");
     const getAllUsersFromAPI = async()=>{
+        console.log(user);
         const users = await getAllUsers(dispatchUser);
         dispatchUser({type:"SET_USERS",payload:users});
         const userList = users.filter(({username})=>username!==user?.username);
@@ -41,10 +42,10 @@ export function UserProvider({children})
     }
     }
     useEffect(()=>{
-        token && getAllBookMarks(token);
+        getAllBookMarks(token);
         getAllUsersFromAPI();
         
-    },[]);
+    },[user]);
     return (
         <div>    
             <UserContext.Provider value={{userState,dispatchUser}}>

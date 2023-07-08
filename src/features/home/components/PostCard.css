@@ -2,6 +2,9 @@
     width: 500px;
     padding:20px;
     margin:20px;
+    background-color: white;
+    border-radius: 5px;
+
 }
 .opDetails{
     display: flex;
@@ -25,17 +28,15 @@
 .userName{
     font-weight: lighter;
 }
-.userPicContainer{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px ;
-    position: relative;
+.userPic-container{
+    height: 70px;
+    width: 70px;
 }
-.userPicContainer img{
-    width:100%;
-    top:0;
+.userPic-container img{
+    width: 50px;
+    height: 50px;
+    /* object-fit: cover; */
+    border-radius: 50%;
 }
 .LikeContainer{
     display: flex;

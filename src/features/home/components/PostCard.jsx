@@ -28,7 +28,7 @@ export function PostCard({singlePost})
         <div className="opDetails">
             <div className="OpAndEdit">
                 <div className="opPersonal">
-                    <div className="userPicContainer">
+                    <div className="userPic-container">
                         <img src={getUser?.profileImg} alt="profileImage" />
                     </div>
                     <div>
@@ -40,7 +40,8 @@ export function PostCard({singlePost})
             </div>
        </div>
         <p>{content}</p>
-        <p>{updatedAt}</p>
+        
+        {/* <p>{updatedAt}</p> */}
       
         <div className="postCardOptions">
             <div className="LikeContainer">

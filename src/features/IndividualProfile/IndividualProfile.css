@@ -1,13 +1,11 @@
-.userProfileImgContainer{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px ;
+.user-profileImg-container{
+    height: 120px;
+    width: 120px;
 }
-.userProfileImgContainer img{
-    width:100%;
-    top:0;
+.user-profileImg-container img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
 }
 .userInfo{
     display: flex;
@@ -16,9 +14,13 @@
     padding:10px;
 }
 .IndividualProfile{
+    /* display: flex;
+    justify-content: center; */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     height: fit-content;
+    justify-content: center;
+    align-items: center;
 }
 .userPersonal{
     display: flex;
@@ -50,6 +52,8 @@
 }
 .profilePage{
     margin: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 .userBio{
     margin: 10px;

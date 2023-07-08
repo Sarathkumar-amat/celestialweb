@@ -43,7 +43,7 @@ export function UserPost({singlePost})
             {
                 setShowMenu(false);
             }
-            console.log("here there editprofile")
+            // console.log("here there editprofile")
             console.log(editRef.current);
             if(editRef.current && !editRef.current.contains(event.target))
             {
@@ -63,8 +63,8 @@ export function UserPost({singlePost})
             <div className="OpAndEdit">
                 <div className="opPersonal">
                     <div className="nameAndDate">
-                        <div className="userPicContainer">
-                            <img src={getUser?.profileImg} alt="profileImage" />
+                        <div className="myPic-container">
+                            <img src={user?.profileImg} alt="profileImage" />
                         </div>
                         <div>
                             <div  className="fullName">{getUser?.firstName} {getUser?.lastName}</div>
@@ -89,8 +89,9 @@ export function UserPost({singlePost})
             </div>
        </div>
         <p>{content}</p>
-        <p></p>
-        <p>{updatedAt}</p>
+       {singlePost?.coverImg && <img src={singlePost?.coverImg} height="100px" width="100px" alt="contentImage"/>}
+        {/* <p></p>
+        <p>{updatedAt}</p> */}
       
         <div className="postCardOptions">
             <div className="LikeContainer">

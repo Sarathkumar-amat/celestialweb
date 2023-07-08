@@ -11,6 +11,8 @@ import { FollowingAll } from "./FollowingAll";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { FollowersAll } from "./FollowersAll";
+import { SideBar } from "../sidebar/SideBar";
+import { AllUsers } from "../home/Suggestions/AllUsers";
 
 export function IndividualProfile()
 {
@@ -54,6 +56,7 @@ export function IndividualProfile()
     console.log(followingModel);
     return (<div className="profilePage">
         {/* <h2>This is individual Profile profile page</h2> */}
+      
         {followingModel && <div> 
             <FollowingAll userObj={reqdUser} setFollowing={setFollowingsModel} currRef={followingRef}/>
         </div>}
@@ -61,39 +64,37 @@ export function IndividualProfile()
         <div><FollowersAll userObj={reqdUser} setFollowing={setFollowingsModel} currRef={followerRef}/></div>}
         
         <div className="IndividualProfile">
-            
-            <div className="userInfo">
-                <div className="userProfileImgContainer">
-                        <img className="profileImg" src={reqdUser?.profileImg} alt="profile"/>
-                </div>
-                <div className="userPersonal">
-                    <div className="personalFollow">
-                        <div>
-                            <div className="fullName">{reqdUser?.firstName} {reqdUser?.lastName}</div>
-                            <div className="userName">@{reqdUser?.username}</div>
-                            <div className="userBio">{reqdUser?.bio}</div>
+            <div>
+                <div className="userInfo">
+                    <div className="user-profileImg-container">
+                            <img className="profile-Img" src={reqdUser?.profileImg} alt="profile"/>
+                    </div>
+                    <div className="userPersonal">
+                        <div className="personalFollow">
+                            <div>
+                                <div className="fullName">{reqdUser?.firstName} {reqdUser?.lastName}</div>
+                                <div className="userName">@{reqdUser?.username}</div>
+                                <div className="userBio">{reqdUser?.bio}</div>
+                            </div>
+                            {!checkFollowing(reqdUser?._id) &&  <button className="followButton" onClick={()=>doFollow(reqdUser?._id,token,setUser)}>Follow</button>}
+                            {checkFollowing(reqdUser?._id) && <button className="followButton" onClick={()=>doUnfollow(reqdUser?._id,token,setUser)}>unfollow</button>}
                         </div>
-                        {!checkFollowing(reqdUser?._id) &&  <button className="followButton" onClick={()=>doFollow(reqdUser?._id,token,setUser)}>Follow</button>}
-                        {checkFollowing(reqdUser?._id) && <button className="followButton" onClick={()=>doUnfollow(reqdUser?._id,token,setUser)}>unfollow</button>}
-                    </div>
-                
-                    <div className="activityDetails">
-                        <div>{userPosts?.length} posts</div>
-                        <div onClick={(e)=>handleFollowersClick(e)}>{reqdUser?.followers?.length} followers</div>
-                        <div onClick={(e)=>handleFollowingClick(e)}>{reqdUser?.following?.length} following</div>
+                    
+                        <div className="activityDetails">
+                            <div>{userPosts?.length} posts</div>
+                            <div onClick={(e)=>handleFollowersClick(e)}>{reqdUser?.followers?.length} followers</div>
+                            <div onClick={(e)=>handleFollowingClick(e)}>{reqdUser?.following?.length} following</div>
+                        </div>
                     </div>
                 </div>
-                {/* <div className="activityDetails">
-                        <div>{userPosts?.length} posts</div>
-                        <div>{reqdUser?.followers?.length} followers</div>
-                        <div>{reqdUser?.following?.length} following</div>
-                    </div> */}
             </div>
-        </div>
-        <div>{userPosts?.map((postObj)=>
+            <div>{userPosts?.map((postObj)=>
             <div>
                 <PostCard singlePost={postObj}/>
             </div>
         )}</div>
+        </div>
+       
+       
     </div>)
 }

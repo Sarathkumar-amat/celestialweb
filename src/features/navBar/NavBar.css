@@ -1,8 +1,12 @@
 .navigationBar{
     box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.4);
     padding: 10px;
-    display: flex;
+    /* display: flex; */
+    width: 100%;
     justify-content: space-between;
+    position: fixed;
+    height: 50px;
+   
 }
 .titleText{
     font-size: 20px;

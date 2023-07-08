@@ -4,3 +4,19 @@
     width: fit-content;
     cursor: pointer;
 }
+.explorePage{
+    /* display: grid;
+    grid-template-columns: 1fr 3fr 1fr; */
+    margin-top: 30px;
+}
+.post-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.page-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
