@@ -1,8 +1,8 @@
-.HomePage{
+/* .HomePage{
    /* display: grid;
    grid-template-columns: 1fr 3fr 1fr; */
     
-}
+
 .sortButtons{
     display: flex;
     justify-content: space-around;
@@ -30,12 +30,11 @@
     display: flex;
     /* position: relative; */
 }
-.profileImgContainer{
+.my-img-container{
     height: 70px;
     width: 70px;
-    /* border-radius: 50%; */
 }
-.profileImgContainer img{
+.my-img-container img{
     height: 50px;
     width: 50px;
     border-radius: 50%;

@@ -53,7 +53,7 @@ export function Home()
             <form onSubmit={(event)=>handleSubmitPost(event)}>
                 <div className="postComp">
                 
-                    <div className="profileImgContainer">
+                    <div className="my-img-container">
                         <img className="profileImg" src={user?.profileImg} alt="profile"/>
                     </div>
                 
