@@ -10,7 +10,6 @@ export function FollowingList({setFollowing,currRef})
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
     const {user,setUser} = useContext(AuthContext);
-    console.log("followingmodel");
     return (<div className="overLayModal">
         <div className="modelBackground">
             <div ref={currRef} className="FollowerModelContainer">

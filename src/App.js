@@ -27,7 +27,7 @@ function App() {
       {/* <MockAPI /> */}
    {/* {token && <NavBar/> } */}
       <ToastContainer autoClose={1000}/>
-     <div className="allComponents">
+    
           
           <Routes>
             <Route path="/" element={<RequiresAuth><ContentBox><Home /></ContentBox></RequiresAuth> } />
@@ -39,7 +39,7 @@ function App() {
             <Route path="/login" element={<Login />} />
           </Routes>
         
-      </div>
+     
       
      
      {/* {token &&  <AllUsers /> } */}

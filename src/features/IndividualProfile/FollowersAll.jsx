@@ -8,7 +8,6 @@ export function FollowersAll({userObj,setFollowing,currRef})
 
     const navigate = useNavigate();
     // const {user} = useContext(AuthContext);
-    console.log("followingmodel");
     return (<div className="overLayModal">
         <div className="modelBackground">
             <div ref={currRef} className="FollowingModelContainer">

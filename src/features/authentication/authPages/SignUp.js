@@ -1,6 +1,7 @@
 import { useContext, useReducer, useState } from "react"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+
 
 import "./SignUp.css";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -80,8 +81,9 @@ export function SignUp()
         }
       };
     return (<div className="createAccountDetail">
+        
         <form className="signUpForm" onSubmit={(event)=>signupHandler(event)}>
-            
+                <h3>Sign Up to CelestialWeb</h3>
                 <div className="firstName">
                     <label htmlFor="firstNameInp">First Name</label>
                     <input required className="firstnameInp" type="text" onChange={(event)=>reduceFun({type:"setFirstName",payload:event.target.value})} />
@@ -116,6 +118,7 @@ export function SignUp()
                     </div>
                 </div>
             <button className="signUpButton">Sign up</button>
+            <Link className="backLogin" to="/login">Back to login page</Link>
         </form>
     </div>)
 }

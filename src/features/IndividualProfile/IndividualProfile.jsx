@@ -53,7 +53,6 @@ export function IndividualProfile()
         e.stopPropagation();
         setFollowersModel(prev=>!prev);
     }
-    console.log(followingModel);
     return (<div className="profilePage">
         {/* <h2>This is individual Profile profile page</h2> */}
       

@@ -24,7 +24,6 @@ export function Login()
         setPass(data=>event.target.value);
     }
     const handleSubmit = (e)=>{
-        console.log(uname);
         e.preventDefault();
         loginUser(uname,pass,location);
     }
@@ -33,7 +32,6 @@ export function Login()
         setPass("adarshBalika123");
     }
     const handleSignup=()=>{
-        console.log("going to signup");
         navigate("/signUp")
     }
 //     return(<div>
@@ -51,6 +49,7 @@ export function Login()
 
 return (<div className="loginPage">
 <form className="LoginDetails" onSubmit={(event)=>handleSubmit(event)}>
+    <h3>Login to Celestialweb</h3>
 <div className="email">
     <label >Email</label>
     <input placeholder="test@gmail.com" className="loginText" type="text" onChange={(event)=>handleUserName(event)}/>

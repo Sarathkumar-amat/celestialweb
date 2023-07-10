@@ -8,7 +8,6 @@ export function FollowersList({setFollowers,currRef})
 
     const navigate = useNavigate();
     const {user} = useContext(AuthContext);
-    console.log("followingmodel");
     return (<div className="overLayModal">
         <div className="modelBackground">
             <div ref={currRef} className="FollowerModelContainer">

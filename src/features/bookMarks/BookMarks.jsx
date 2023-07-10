@@ -12,7 +12,6 @@ export function BookMarks()
     const {user} = useContext(AuthContext);
     const {userState} = useContext(UserContext);
     const displayPosts = userState?.bookMarks;
-    console.log(user);
 
     return (<div className="BookMarksPage">
        

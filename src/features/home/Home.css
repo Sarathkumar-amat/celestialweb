@@ -1,12 +1,13 @@
-/* .HomePage{
-   /* display: grid;
-   grid-template-columns: 1fr 3fr 1fr; */
+.HomePage{
+    margin-top: 40px;
+}
     
 
 .sortButtons{
     display: flex;
     justify-content: space-around;
     width: 100%;
+    margin-top: 20px;
 }
 .homeComponent{
     margin:20px;
