@@ -30,6 +30,10 @@
     display: flex;
     /* position: relative; */
 }
+.image-text{
+    display: flex;
+    flex-direction: column;
+}
 .my-img-container{
     height: 70px;
     width: 70px;
@@ -52,6 +56,10 @@
     color: white;
     font-weight: bold;
     border-radius: 5px;
+}
+.new-img-upload-container input[type="file"]
+{
+    display: none; 
 }
 .individualPost{
     width:600px;

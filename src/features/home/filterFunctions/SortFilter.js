@@ -15,6 +15,10 @@ export function sortFilter(postArray,sortType)
             return d1-d2;
         })
     }
+    else if(sortType==="trending")
+    {
+        postArray = postArray?.sort((a,b)=>b.likes.likeCount-a.likes.likeCount);
+    }
     // else if(sortType==="trending")
     // {
 

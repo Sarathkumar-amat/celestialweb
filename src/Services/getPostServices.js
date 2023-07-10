@@ -1,10 +1,10 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const getUserPost = async (userName)=>{
 
     try{
         const response = await axios.get(`/api/posts/user/${userName}`)
-        console.log(response.data.posts);
         if(response.status===200)
         {
             return response.data.posts;
@@ -22,10 +22,8 @@ export const doPost = async (postObj,token,dispatch)=>{
                 authorization:token
             }
         })
-        console.log(response);
         if(response.status===201)
         {
-          console.log(response);
           dispatch({type:"ADD_POST",payload:response.data.posts});
         }
     }
@@ -42,8 +40,10 @@ export const doDeletePost = async(postId,token,dispatch)=>{
                 authorization:token
             }
         })
-        console.log(response);
         dispatch({type:"DELETE_POST",payload:response.data.posts})
+        toast.warning("Post Deleted",{
+            position: toast.POSITION.BOTTOM_RIGHT
+          })
     }
     catch(error)
     {
@@ -57,7 +57,6 @@ export const doEditPost = async (postId,postData,token,dispatch)=>{
                 authorization:token
             }
         })
-        console.log(response);
         if(response.status==201)
         {
             dispatch({type:"EDIT_POST",payload:response.data.posts});

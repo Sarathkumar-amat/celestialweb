@@ -8,6 +8,25 @@
     width:100%;
     top:0;
 }
+.image-to-change{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: relative;
+}
+.input-image-upload input[type="file"]
+{
+    display: none;
+}
+.file-upload{
+    display: none;
+}
+.bi-camera-fill{
+    position: absolute;
+    top: 240px;
+    left:585px;
+    bottom:0;
+}
 .overLayModal{
     position: fixed;
     top:0;
@@ -26,6 +45,13 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 25px;
     z-index: 10000;
+  }
+  .change-profile-pic
+  {
+    display: flex;
+  }
+  .input-image-upload{
+    margin-left:40px;
   }
 .Bio,.profileImg,.websiteLink{
     display: flex;

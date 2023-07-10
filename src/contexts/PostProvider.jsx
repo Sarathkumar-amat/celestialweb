@@ -18,7 +18,6 @@ export function PostProvider({children})
         const response = await axios.get("/api/posts");
            if(response.status===200)
            {
-            console.log(response.data);
             dispatchPost({type:"SET_POSTS",payload:response.data.posts});
            }
         }

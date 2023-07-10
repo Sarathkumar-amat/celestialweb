@@ -26,7 +26,7 @@ export function UserPost({singlePost})
     const userValues = user;
     const date = new Date(createdAt);
     const menuRef = useRef();
-    const editRef = useRef();
+    // const editRef = useRef();
     const [showMenu,setShowMenu] = useState(false);
     const [showEdit,setShowEdit] = useState(false);
     // console.log(date);
@@ -44,11 +44,11 @@ export function UserPost({singlePost})
                 setShowMenu(false);
             }
             // console.log("here there editprofile")
-            console.log(editRef.current);
-            if(editRef.current && !editRef.current.contains(event.target))
-            {
-                setShowEdit(false);
-            }
+            // console.log(editRef.current);
+            // if(editRef.current && !editRef.current.contains(event.target))
+            // {
+            //     setShowEdit(false);
+            // }
         })
     },[])
     // window.addEventListener("click",(e)=>{
@@ -84,12 +84,12 @@ export function UserPost({singlePost})
                     } class="bi bi-three-dots-vertical"></i>
                     </div>
                     <div ref={menuRef}>{showMenu && <div ref={menuRef}> <Menu postObj={singlePost} refr={menuRef} setMenu={setShowMenu} setEdit={setShowEdit}/> </div>}</div>
-                    {showEdit && <div className="EditBg"><EditPost postObj={singlePost} setEdit={setShowEdit} editRef={editRef}/></div>}
+                    {showEdit && <div className="EditBg"><EditPost postObj={singlePost} setEdit={setShowEdit}/></div>}
                 </div>
             </div>
        </div>
         <p>{content}</p>
-       {singlePost?.coverImg && <img src={singlePost?.coverImg} height="100px" width="100px" alt="contentImage"/>}
+       {singlePost?.coverImg && <img className="content-img-display" src={singlePost?.coverImg} alt="contentImage"/>}
         {/* <p></p>
         <p>{updatedAt}</p> */}
       

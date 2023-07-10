@@ -5,7 +5,6 @@ export const getAllUsers = async(dispatchUser)=>{
         const response = await axios.get("/api/users");
         if(response.status===200)
         {
-            console.log(response);
             return response.data.users;
         }
     }

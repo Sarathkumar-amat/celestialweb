@@ -26,7 +26,7 @@ function App() {
       {/* <h1>Celestial Web - Social Media App</h1> */}
       {/* <MockAPI /> */}
    {/* {token && <NavBar/> } */}
-      <ToastContainer />
+      <ToastContainer autoClose={1000}/>
      <div className="allComponents">
           
           <Routes>

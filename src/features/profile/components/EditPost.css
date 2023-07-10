@@ -8,6 +8,39 @@
     overflow: hidden;
     z-index: 1000;
 }
+.img-upload-container input[type="file"]
+{
+    display: none;
+    
+}
+.content-image{
+  height: 100px;
+  width: 100px;
+}
+.bi-card-image{
+  margin-right: 10px;
+}
+.added-Image{
+  position: relative;
+}
+.added-Image button{
+  position: absolute;
+  margin-left: -10px;
+  background-color: red;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.img-upload-container label{
+  cursor: pointer;
+}
+.img-upload-container{
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
 .EditModelContainer {
     width: 400px;
     border-radius: 12px;

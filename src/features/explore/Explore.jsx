@@ -20,9 +20,8 @@ export function Explore()
     return (<div className="explorePage">
        
         
-            {/* <h3>Explore page</h3> */}
             <div>
-                {/* <div className="page-name"><h2>Explore</h2></div> */}
+                <div className="page-name"><h2>Explore</h2></div>
             {/* <div className="TrendingButton">Trending</div> */}
             <div className="post-container">{displayPosts?.map(postData=>
                 <div className="individualPost"> 

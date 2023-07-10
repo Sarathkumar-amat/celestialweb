@@ -27,7 +27,16 @@ export function EditProfile({closeModal,editRef})
         <div className="modelBackground">
             <div ref={editRef} className="modelContainer">
                 <div className="editForm">
-                <input id="file-upload" type="file" onChange={handleImageUpload} />
+            <div className="change-profile-pic">
+                <div>Profile Pic</div>
+                <div className="input-image-upload">
+                    <label htmlFor="file-upload">
+                    <img className="image-to-change" src={newImg} alt="profileImg" />
+                    </label>
+                    <input id="file-upload" type="file" onChange={handleImageUpload} /><i class="bi bi-camera-fill"></i>
+                </div>
+            </div>
+                
                 <div className="Bio">
                     <label>Bio</label>
                     <input onChange={(event)=>setBio(event.target.value)}type="text" defaultValue={user?.bio}/>

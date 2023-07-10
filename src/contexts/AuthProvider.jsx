@@ -14,10 +14,8 @@ export function AuthProvider({children})
     const [loader,setLoader] = useState(false);
     const navigate=useNavigate();
     const getUser = async(userId)=>{
-        console.log(userId);
         try{
             const res = await axios.get(`/api/users/${userId}`);
-            console.log(res);
             localStorage.setItem("user",JSON.stringify(res.data.user));
             setUser(res.data.user);
         }
@@ -38,7 +36,6 @@ export function AuthProvider({children})
     // const [user,setUser] = useState(null);
     // console.log(user);
     const loginUser = async (userName,passWord,location)=>{
-        console.log("here login user");
         if(userName!=="" && passWord!=="")
         {
             try{
