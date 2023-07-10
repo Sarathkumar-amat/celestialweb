@@ -34,18 +34,7 @@ export function Login()
     const handleSignup=()=>{
         navigate("/signUp")
     }
-//     return(<div>
-//         <form onSubmit={(event)=>handleSubmit(event)}>
-//             <label>User Name</label>
-//             <input type="text" onChange={(event)=>handleUserName(event)}/>
-//             <label>Password</label>
-//             <input type="password" onChange={(event)=>handlePass(event)} />
-//             <button onClick={()=>handleTestUser()}>Submit</button>
-//         </form>
-//         <Link to="/signUp">Signup</Link>
-//        <div onClick={()=>handleSignup()}>Sign Up</div>
-//     </div>)
-// }
+
 
 return (<div className="loginPage">
 <form className="LoginDetails" onSubmit={(event)=>handleSubmit(event)}>

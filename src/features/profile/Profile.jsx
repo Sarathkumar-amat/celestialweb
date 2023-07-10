@@ -14,6 +14,7 @@ import { AllUsers } from "../home/Suggestions/AllUsers";
 import { FollowersList } from "./components/FollowersList";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../../components/Loader";
+import { toast } from "react-toastify";
 
 export function Profile()
 {
@@ -51,6 +52,9 @@ export function Profile()
     localStorage.removeItem("user");
     setUser();
     navigate("/login");
+    toast.warning("logged out!",{
+        position: toast.POSITION.BOTTOM_RIGHT
+      })
 }
    const handleFollowDisplay = (e)=>
    {

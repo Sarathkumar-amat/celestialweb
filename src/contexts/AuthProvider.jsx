@@ -1,15 +1,13 @@
 import axios from "axios";
 import { createContext,useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({children})
 {
-    // localStorageUser?.user
-    // console.log(localStorage.getItem("user"));
     const localStorageUser = JSON.parse(localStorage.getItem("user"));
-    // const localStorageUser = localStorage.getItem("user");
     const [user,setUser] = useState(localStorageUser);
     const [loader,setLoader] = useState(false);
     const navigate=useNavigate();
@@ -47,7 +45,11 @@ export function AuthProvider({children})
                 localStorage.setItem("user",JSON.stringify(data.foundUser));
                 localStorage.setItem("token",data.encodedToken);
                 setUser(data.foundUser);
+                
                 (location?.state===null)?navigate("/"):navigate(location?.state?.from?.pathname);
+                toast.success("Login Successful!",{
+                    position: toast.POSITION.BOTTOM_RIGHT
+                  })
                 }
             }
             catch(error)

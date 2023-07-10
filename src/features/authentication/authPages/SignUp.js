@@ -5,6 +5,7 @@ import { useNavigate,Link } from "react-router-dom";
 
 import "./SignUp.css";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { toast } from "react-toastify";
 
 
 function signUpReducer(state,action)
@@ -71,9 +72,12 @@ export function SignUp()
                     localStorage.setItem("user",  JSON.stringify({ user: response.data.createdUser }));
                     
                     setUser({...response.data.createdUser,profileImg:"https://rb.gy/tc5co"});
+                   
                     navigate("/");
-                    // console.log(loginState.user);
-                    // navigate(location?.state?.from?.pathname);
+                    toast.success("Signed Up successfully!",{
+                        position: toast.POSITION.BOTTOM_RIGHT
+                      })
+                   
                 }
             } catch (error) {
                 console.log(error);

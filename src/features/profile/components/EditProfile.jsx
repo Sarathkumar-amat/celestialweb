@@ -4,6 +4,7 @@ import "../Profile.css"
 import "./EditProfile.css"
 import { useState } from "react";
 import { doEdit } from "../../../Services/UserServices";
+import { toast } from "react-toastify";
 export function EditProfile({closeModal,editRef})
 {
     const {user,setUser} = useContext(AuthContext);
@@ -16,6 +17,9 @@ export function EditProfile({closeModal,editRef})
     const handleUpdate=()=>{
         doEdit({...user,bio:newBio,profileImg:newImg,website:newWebsite},token,setUser);
         closeModal(false);
+        toast.success("Profile edited!",{
+            position: toast.POSITION.BOTTOM_RIGHT
+          })
     }
     const handleImageUpload = (event)=>{
     const newSrc = event.target.files[0];
