@@ -14,9 +14,11 @@ export function EditPost({postObj,setEdit})
     const {user} = useContext(AuthContext);
     const {dispatchPost} = useContext(PostContext);
     const [postContent,setPostContent] = useState(postObj?.content);
+
     const handleContentChange = (e)=>{
         setPostContent(e.target.value);
     }
+
     const handleEdit = ()=>{
         doEditPost(postObj?._id,{...postObj,content:postContent,coverImg:contentImg},token,dispatchPost);
         setEdit(false);
@@ -24,6 +26,7 @@ export function EditPost({postObj,setEdit})
             position: toast.POSITION.BOTTOM_RIGHT
           })
     }
+    
     const handleContentImage = (event)=>{
         const newSrc = event.target.files[0];
         setContentImg(URL.createObjectURL(newSrc));

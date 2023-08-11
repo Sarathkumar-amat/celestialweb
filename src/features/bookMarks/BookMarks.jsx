@@ -3,9 +3,9 @@ import { AuthContext } from "../../contexts/AuthProvider"
 import { UserContext } from "../../contexts/UserProvider";
 import { UserPost } from "../profile/components/UserPost";
 import { PostCard } from "../home/components/PostCard";
-import { SideBar } from "../sidebar/SideBar";
+// import { SideBar } from "../sidebar/SideBar";
 import "./BookMarks.css";
-import { AllUsers } from "../home/Suggestions/AllUsers";
+// import { AllUsers } from "../home/Suggestions/AllUsers";
 
 export function BookMarks()
 {

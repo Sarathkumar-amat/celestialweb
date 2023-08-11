@@ -4,5 +4,4 @@ export function filterByFollowing(postArray,followingArray,userName)
     const followings = followingArray?.map(({username})=>username);
     const followingPosts = postArray?.filter(({username})=>followings?.includes(username));
     return [...followingPosts,...myPosts,];
-    
 }
