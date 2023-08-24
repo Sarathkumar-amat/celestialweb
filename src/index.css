@@ -1,13 +1,23 @@
 body {
-  margin: 0;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f0f2f5;
+ 
 }
 
+/* html, body {
+ /* height: 100vh !important;
+  width: 100%; */
+  
+  @media screen and (max-width: 550px) {
+    body{
+      height: 100vh;
+    }
+  }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

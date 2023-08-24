@@ -1,8 +1,11 @@
 .HomePage{
-    margin-top: 40px;
+    /* margin-top: 40px; */
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
     
-
 .sortButtons{
     display: flex;
     justify-content: space-around;
@@ -10,13 +13,21 @@
     margin-top: 20px;
 }
 .homeComponent{
-    margin:20px;
+     margin:20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
+    height: -webkit-fill-available; 
     width: 600px;
+   
 }
+@media screen and (max-width: 550px) {
+    .homeComponent{
+   
+      height: -webkit-fill-available; 
+    }
+  }
 .postText{
     margin:10px;
     border: none;
@@ -74,4 +85,11 @@
     color: white;
     border: none;
     font-weight: bold;
+}
+@media screen and (max-width: 550px) {
+    .homeComponent{
+       display: inline-block;
+       height: fit-content;
+       
+    }
 }
